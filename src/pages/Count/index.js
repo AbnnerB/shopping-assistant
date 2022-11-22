@@ -31,8 +31,10 @@ export default function Count() {
           </tr>
         </tbody>
         <tfoot>
-          <td>Total</td>
-          <td colSpan="2"></td>
+          <tr>
+            <td>Total</td>
+            <td colSpan="2"></td>
+          </tr>
         </tfoot>
       </table>
     </div>
