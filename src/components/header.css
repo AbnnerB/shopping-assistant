@@ -1,0 +1,14 @@
+.headerNav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  margin-top: 3rem;
+}
+.headerNav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  color: #faebd7;
+  font-size: 2rem;
+  border-radius: 10px;
+}
