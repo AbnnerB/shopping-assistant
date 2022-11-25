@@ -22,8 +22,6 @@ export default function Home() {
       return;
     }
 
-    //,
-
     const todoObj = { id: id, text: texts, checkedButton: true };
     setId(id + 1);
 
@@ -33,11 +31,11 @@ export default function Home() {
     setTexts("");
   }
 
-  // function todoCreate(text) {
-  //   const todoObj = { id: id, text: text, checkedButton: true };
-  //   setId(id + 1);
-  //   addTodo(todoObj);
-  // }
+  function deletarItem(id) {
+    var filtered = arrayTodo.filter((todo) => todo.id !== id);
+    setArrayTodo(filtered);
+    console.log(arrayTodo);
+  }
 
   return (
     <div className="containerHome">
@@ -62,30 +60,22 @@ export default function Home() {
       <div className="containerLista">
         <h1>Anotações</h1>
 
-        {arrayTodo.map((item, key) => (
-          <div key={key} className="lista">
+        {arrayTodo.map((item, index) => (
+          <div key={index} className="lista">
             <span>
               <button>
                 <AiOutlineCheckCircle />
               </button>
               {item.text}
             </span>
-            <button className="buttonDelete">
+            <button
+              className="buttonDelete"
+              onClick={() => deletarItem(item.id)}
+            >
               <AiFillDelete />
             </button>
           </div>
         ))}
-        {/* <div className="lista">
-          <span>
-            <button>
-              <AiOutlineCheckCircle />
-            </button>
-            sadsad
-          </span>
-          <button className="buttonDelete">
-            <AiFillDelete />
-          </button>
-        </div> */}
       </div>
     </div>
   );
