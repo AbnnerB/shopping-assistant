@@ -26,7 +26,6 @@ export default function Home() {
     setId(id + 1);
 
     setArrayTodo([...arrayTodo, todoObj]);
-    console.log(arrayTodo);
 
     setTexts("");
   }
