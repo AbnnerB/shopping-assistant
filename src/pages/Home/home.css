@@ -10,6 +10,7 @@ fazer uma classe pra quando o exercicio estiver concluido
 }
 .inputButton {
   display: flex;
+  justify-content: space-between;
 }
 
 .inputButton input {
@@ -23,15 +24,15 @@ fazer uma classe pra quando o exercicio estiver concluido
 }
 .inputButton button {
   cursor: pointer;
-  width: 10%;
+  /* width: 10%; */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: end;
   background-color: transparent;
   border: none;
   color: rgb(122, 78, 11);
-  font-size: 2rem;
+  font-size: 2.2rem;
   transition: transform 0.4s;
+  outline: 1px solid rgb(163, 163, 163);
 }
 
 .containerLista {

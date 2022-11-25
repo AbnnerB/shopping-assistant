@@ -26,11 +26,12 @@ export default function Home() {
     setId(id + 1);
 
     setArrayTodo([...arrayTodo, todoObj]);
+    console.log(arrayTodo);
 
     setTexts("");
   }
 
-  function deletarItem(id) {
+  function deleteItem(id) {
     var filtered = arrayTodo.filter((todo) => todo.id !== id);
     setArrayTodo(filtered);
     console.log(arrayTodo);
@@ -69,7 +70,7 @@ export default function Home() {
             </span>
             <button
               className="buttonDelete"
-              onClick={() => deletarItem(item.id)}
+              onClick={() => deleteItem(item.id)}
             >
               <AiFillDelete />
             </button>
