@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "./home.css";
 
 import Header from "../../components/Header";
@@ -9,51 +11,81 @@ import {
 } from "react-icons/ai";
 
 export default function Home() {
+  const [texts, setTexts] = useState("");
+  const [id, setId] = useState(0);
+
+  const [arrayTodo, setArrayTodo] = useState([]);
+
+  function addTodo() {
+    if (texts.length < 1) {
+      alert("Digite alguma coisa ");
+      return;
+    }
+
+    //,
+
+    const todoObj = { id: id, text: texts, checkedButton: true };
+    setId(id + 1);
+
+    setArrayTodo([...arrayTodo, todoObj]);
+    console.log(arrayTodo);
+
+    setTexts("");
+  }
+
+  // function todoCreate(text) {
+  //   const todoObj = { id: id, text: text, checkedButton: true };
+  //   setId(id + 1);
+  //   addTodo(todoObj);
+  // }
+
   return (
     <div className="containerHome">
       <Header />
 
       <div className="inputButton">
-        <input type="text" maxLength="40" placeholder="Digite aqui..." />
-        <button>
+        <input
+          type="text"
+          maxLength="40"
+          placeholder="Digite aqui..."
+          value={texts}
+          onChange={(e) => setTexts(e.target.value)}
+          autoFocus
+        />
+        <button onClick={addTodo}>
           <AiFillPlusCircle />
         </button>
       </div>
+
+      {/* somente dando espaço  */}
+
       <div className="containerLista">
         <h1>Anotações</h1>
-        <div className="lista">
+
+        {arrayTodo.map((item, key) => (
+          <div key={key} className="lista">
+            <span>
+              <button>
+                <AiOutlineCheckCircle />
+              </button>
+              {item.text}
+            </span>
+            <button className="buttonDelete">
+              <AiFillDelete />
+            </button>
+          </div>
+        ))}
+        {/* <div className="lista">
           <span>
             <button>
               <AiOutlineCheckCircle />
             </button>
-            compras 1
+            sadsad
           </span>
           <button className="buttonDelete">
             <AiFillDelete />
           </button>
-        </div>
-        <div className="lista">
-          <span>
-            <button>
-              <AiOutlineCheckCircle />
-            </button>
-            compras 2
-          </span>
-          <button className="buttonDelete">
-            <AiFillDelete />
-          </button>
-        </div>
-        <div className="lista">
-          <span>
-            <button>
-              <AiOutlineCheckCircle />
-            </button>
-            compras 3
-          </span>
-          <button className="buttonDelete">
-            <AiFillDelete />
-          </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
