@@ -55,8 +55,6 @@ export default function Home() {
         </button>
       </div>
 
-      {/* somente dando espaço  */}
-
       <div className="containerLista">
         <h1>Anotações</h1>
 
