@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./home.css";
 
@@ -15,6 +15,25 @@ export default function Home() {
   const [id, setId] = useState(0);
 
   const [arrayTodo, setArrayTodo] = useState([]);
+  // () => JSON.parse(localStorage.getItem("arrayTodo")) || [],
+
+  useEffect(() => {
+    // localStorage.setItem("arrayTodo", JSON.stringify(arrayTodo));
+
+    let storedArray = JSON.parse(localStorage.getItem("arrayTodo")) || [];
+    setArrayTodo(storedArray);
+
+    //soluçao para o problema no id
+    //quando a pagina recarregava o id voltava a 0, então se o usuario recarregasse a pagina e adicionasse mais 1 item na lista, esse item viria com o id 0, fazendo com q o id se repetisse
+    let getId = storedArray.map((task) => {
+      return task.id;
+    });
+
+    let lastId = getId[getId.length - 1];
+
+    setId(lastId + 1 || 0);
+    //soluçao para o problema no id
+  }, []);
 
   function addTodo() {
     if (texts.length < 1) {
@@ -26,14 +45,19 @@ export default function Home() {
     setId(id + 1);
 
     setArrayTodo([...arrayTodo, todoObj]);
-    console.log(arrayTodo);
+    // console.log(arrayTodo);
+
+    localStorage.setItem("arrayTodo", JSON.stringify(arrayTodo));
 
     setTexts("");
   }
+  //espaço
 
   function deleteItem(id) {
     var filtered = arrayTodo.filter((todo) => todo.id !== id);
     setArrayTodo(filtered);
+
+    localStorage.setItem("arrayTodo", JSON.stringify(filtered));
     console.log(arrayTodo);
   }
 
