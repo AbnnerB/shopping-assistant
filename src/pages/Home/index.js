@@ -19,11 +19,10 @@ export default function Home() {
   );
 
   useEffect(() => {
-    let storedArray = JSON.parse(localStorage.getItem("arrayTodo")) || [];
-    // setArrayTodo(storedArray);
-
     //soluçao para o problema no id
     //quando a pagina recarregava o id voltava a 0, então se o usuario recarregasse a pagina e adicionasse mais 1 item na lista, esse item viria com o id 0, fazendo com q o id se repetisse
+
+    let storedArray = JSON.parse(localStorage.getItem("arrayTodo")) || [];
     let getId = storedArray.map((task) => {
       return task.id;
     });
@@ -31,7 +30,6 @@ export default function Home() {
     let lastId = getId[getId.length - 1];
 
     setId(lastId + 1 || 0);
-    //soluçao para o problema no id
   }, []);
 
   function addTodo() {
@@ -40,14 +38,10 @@ export default function Home() {
       return;
     }
 
-    //setArrayTodo([...arrayTodo, { text: "" }]);
     const todoObj = { id: id, text: texts, checkedButton: true };
     setId(id + 1);
 
     setArrayTodo([...arrayTodo, todoObj]);
-    // console.log(arrayTodo);
-
-    // localStorage.setItem("arrayTodo", JSON.stringify(arrayTodo));
 
     setTexts("");
   }
@@ -55,8 +49,6 @@ export default function Home() {
   useEffect(() => {
     localStorage.setItem("arrayTodo", JSON.stringify(arrayTodo));
   }, [arrayTodo]);
-
-  //espaço
 
   function deleteItem(id) {
     let filtered = arrayTodo.filter((todo) => todo.id !== id);
