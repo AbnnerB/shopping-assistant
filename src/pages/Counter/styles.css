@@ -1,4 +1,80 @@
 .topoInputs {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
+  align-items: baseline;
 }
+
+.containerLabelInputs {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid brown; */
+}
+.containerLabelInputs input {
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+}
+
+/*  informações da tabela daqui a pouco */
+
+.sectionTable {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border: none;
+  /* border-collapse: collapse; */
+  margin: auto;
+  background-color: white;
+  background-color: transparent;
+}
+
+th,
+td {
+  width: 100%;
+  background-color: white;
+}
+
+.inputTabela {
+  width: 100%;
+  font-size: 1.1rem;
+  border: none;
+  /* outline: 1px solid rgb(156, 156, 156); */
+  outline: none;
+  text-align: center;
+}
+
+th,
+td {
+  padding: 10px;
+  /* text-align: center; */
+  width: 120px;
+}
+
+th {
+  font-weight: bold;
+}
+
+.tdButton {
+  background-color: transparent;
+  border: none;
+  text-align: justify;
+  width: 10%;
+}
+
+.tdButton button {
+  background-color: transparent;
+  border: none;
+  color: rgb(218, 17, 17);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* tbody tr:nth-child(even) {
+    background-color: #dcebe6;
+  }
+  tbody tr:nth-child(odd) {
+    background-color: #a6c7bc;
+  } */
