@@ -14,6 +14,11 @@ export default function Home() {
   const [texts, setTexts] = useState("");
   const [id, setId] = useState(0);
 
+  //
+  const [valor1, setValor1] = useState(Number);
+  const [quantidade1, setQuantidade1] = useState(Number);
+  //
+
   const [arrayTodo, setArrayTodo] = useState(
     () => JSON.parse(localStorage.getItem("arrayTodo")) || []
   );
@@ -38,7 +43,13 @@ export default function Home() {
       return;
     }
 
-    const todoObj = { id: id, text: texts, checkedButton: true };
+    const todoObj = {
+      id: id,
+      text: texts,
+      checkedButton: true,
+      valor: "",
+      quant: "",
+    };
     setId(id + 1);
 
     setArrayTodo([...arrayTodo, todoObj]);
