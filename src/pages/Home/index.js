@@ -26,14 +26,11 @@ export default function Home() {
   useEffect(() => {
     //soluçao para o problema no id
     //quando a pagina recarregava o id voltava a 0, então se o usuario recarregasse a pagina e adicionasse mais 1 item na lista, esse item viria com o id 0, fazendo com q o id se repetisse
-
     let storedArray = JSON.parse(localStorage.getItem("arrayTodo")) || [];
     let getId = storedArray.map((task) => {
       return task.id;
     });
-
     let lastId = getId[getId.length - 1];
-
     setId(lastId + 1 || 0);
   }, []);
 
