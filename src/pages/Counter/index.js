@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./styles.css";
 
@@ -7,22 +7,72 @@ import { AiFillDelete } from "react-icons/ai";
 export default function Counter() {
   const [products, setProducts] = useState("");
   const [values, setValues] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState("1");
+  const [id, setId] = useState(0);
 
-  const [arrayLine, setArrayLine] = useState([]);
+  const [totalValue, setTotalValue] = useState(0);
+
+  const [arrayLine, setArrayLine] = useState(
+    () => JSON.parse(localStorage.getItem("arrayLineLocal")) || []
+  );
+
+  useEffect(() => {
+    if (values <= 0) {
+      setValues(1);
+    }
+    if (quantity < 1) {
+      setQuantity(1);
+    }
+  }, [values, quantity]);
+
+  useEffect(() => {
+    let storedArray = JSON.parse(localStorage.getItem("arrayLineLocal"));
+    let getId = storedArray.map((task) => {
+      return task.id;
+    });
+
+    let lastId = getId[getId.length - 1];
+
+    setId(lastId + 1 || 0);
+  }, []);
 
   function addLine() {
     if (products.length < 1 || values.length < 1 || quantity.length < 0) {
       alert("Digite um Valor");
+      return;
     }
 
     const lineObj = {
       product: products,
       values: values,
       quantity: quantity,
+      id: id,
     };
+    setId(id + 1);
 
     setArrayLine([...arrayLine, lineObj]);
+    console.log(arrayLine);
+  }
+
+  useEffect(() => {
+    localStorage.setItem("arrayLineLocal", JSON.stringify(arrayLine));
+
+    function somar(total, item) {
+      const valorTotal = item.values * item.quantity;
+
+      return total + valorTotal;
+    }
+
+    const resultado = arrayLine.reduce(somar, 0);
+
+    setTotalValue(resultado);
+  }, [arrayLine]);
+
+  function deleteLine(id) {
+    let filtered = arrayLine.filter((line) => line.id !== id);
+    setArrayLine(filtered);
+
+    localStorage.setItem("arrayLineLocal", JSON.stringify(filtered));
   }
 
   return (
@@ -57,6 +107,7 @@ export default function Counter() {
             name="inputQuant"
             placeholder="Digite um valor"
             value={quantity}
+            min="1"
             onChange={(e) => setQuantity(e.target.value)}
           />
         </div>
@@ -68,7 +119,7 @@ export default function Counter() {
           <table border="1">
             <thead>
               <tr>
-                <th>Nome</th>
+                <th>Produto</th>
                 <th>Valor</th>
                 <th>Quantidade</th>
               </tr>
@@ -77,10 +128,10 @@ export default function Counter() {
               {arrayLine.map((item, index) => (
                 <tr key={index}>
                   <td>{item.product} </td>
-                  <td>{item.values}</td>
+                  <td>{`R$ ${item.values},00`}</td>
                   <td>{item.quantity}</td>
                   <td className="tdButton">
-                    <button>
+                    <button onClick={() => deleteLine(item.id)}>
                       <AiFillDelete />
                     </button>
                   </td>
@@ -95,6 +146,11 @@ export default function Counter() {
                     style: "currency",
                     currency: "BRL",
                 })} */}
+
+                  {totalValue.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
                 </td>
               </tr>
             </tfoot>
