@@ -42,7 +42,10 @@ export default function Counter() {
     setId(id + 1);
 
     setArrayLine([...arrayLine, lineObj]);
-    console.log(arrayLine);
+
+    setProducts("");
+    setValues("");
+    setQuantity("");
   }
 
   useEffect(() => {
@@ -79,6 +82,7 @@ export default function Counter() {
             placeholder="Digite..."
             value={products}
             onChange={(e) => setProducts(e.target.value)}
+            autoFocus
           />
         </div>
         <div className="containerLabelInputs">
