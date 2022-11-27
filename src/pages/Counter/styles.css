@@ -70,6 +70,7 @@ th {
   color: rgb(218, 17, 17);
   font-size: 2rem;
   cursor: pointer;
+  display: flex;
 }
 
 /* tbody tr:nth-child(even) {
