@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Count from "./pages/Count";
+import Counter from "./pages/Counter";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/count" element={<Count />} />
+        <Route path="/counter" element={<Counter />} />
       </Routes>
     </BrowserRouter>
   );

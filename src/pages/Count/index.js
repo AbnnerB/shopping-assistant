@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+// import { useState } from "react";
 
 import Header from "../../components/Header";
 
 import "./count.css";
 
 export default function Count() {
-  const [valor, setValor] = useState("");
-  const [quantidade, setQuantidade] = useState(1);
-  const [total, setTotal] = useState(0);
+  // const [valor, setValor] = useState("");
+  // const [quantidade, setQuantidade] = useState(1);
+  // const [total, setTotal] = useState(0);
 
-  const [arrayTodo, setArrayTodo] = useState(
-    () => JSON.parse(localStorage.getItem("arrayTodo")) || []
-  );
+  // const [arrayTodo, setArrayTodo] = useState(
+  //   () => JSON.parse(localStorage.getItem("arrayTodo")) || []
+  // );
 
   // useEffect(() => {
   //   function soma() {
@@ -52,13 +52,45 @@ export default function Count() {
   //   setQuantidade(13323);
   // });
 
-  function handleInputChange(total, item) {
-    const valorTotal = parseFloat(item.quant) * parseFloat(item.valor);
+  //Só na esperança de conseguir fazer isso funcionar
+  /*
+    function handleInputChange(e) {
+    if (e.target.getAttribute("name") === "inputValue") {
+      setArrayTodo((obj) => {
+        return {
+          ...obj,
+          valor: e.target.value,
+          quant: obj.quant,
+        };
+      });
+    } 
+  */
 
-    console.log(total + valorTotal);
+  // function handleInputChange(e) {
+  //   if (e.target.getAttribute("name") === "inputValue") {
+  //     setArrayTodo({
+  //       id: arrayTodo.id,
+  //       text: arrayTodo.text,
+  //       checkedButton: arrayTodo.checkedButton,
+  //       valor: e.target.value,
+  //       quant: arrayTodo.quant,
+  //     });
+  //   } else if (e.target.getAttribute("name") === "inputQuant") {
+  //     setArrayTodo({
+  //       id: arrayTodo.id,
+  //       text: arrayTodo.text,
+  //       checkedButton: arrayTodo.checkedButton,
+  //       valor: arrayTodo.valor,
+  //       quant: e.target.value,
+  //     });
+  //   }
 
-    return total + valorTotal;
-  }
+  // const valorTotal = parseFloat(item.quant) * parseFloat(item.valor);
+  // console.log(total + valorTotal);
+  // return total + valorTotal;
+  // }
+
+  //tentei tudo
 
   return (
     <div className="containerHome">
@@ -98,7 +130,7 @@ export default function Count() {
             </td>
           </tr> */}
           {/* sa */}
-          {arrayTodo.map((item, index) => (
+          {/* {arrayTodo.map((item, index) => (
             <tr key={index}>
               <td>{item.text} </td>
               <td>
@@ -107,13 +139,14 @@ export default function Count() {
                   type="number"
                   placeholder="00"
                   min="1"
-                  value={item.valor}
+                  name="inputValue"
+                  // value={item.valor}
                   // onChange={(e) => arrayTodo.reduce(handleInputChange, 0)}
                   // onChange={ handleInputChange}
                   // onChange={(e) => handleInputChange(e)}
                   // onChange={() => arrayTodo.reduce(handleInputChange, 0)}
                   // onChange={(e) => setValor(e.target.value)}
-                  onChange={(e) => handleInputChange(e)}
+                  // onChange={(e) => handleInputChange(e)}
                 />
               </td>
               <td>
@@ -122,12 +155,13 @@ export default function Count() {
                   type="number"
                   placeholder="01"
                   min="1"
-                  value={item.quant}
-                  onChange={() => arrayTodo.reduce(handleInputChange, 0)}
+                  name="inputQuant"
+                  // value={item.quant}
+                  // onChange={(e) => handleInputChange(e)}
                 />
               </td>
             </tr>
-          ))}
+          ))} */}
         </tbody>
         <tfoot>
           <tr>
