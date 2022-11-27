@@ -15,8 +15,8 @@ export default function Home() {
   const [id, setId] = useState(0);
 
   //
-  const [valor1, setValor1] = useState(Number);
-  const [quantidade1, setQuantidade1] = useState(Number);
+  // const [valor1, setValor1] = useState(Number);
+  // const [quantidade1, setQuantidade1] = useState(Number);
   //
 
   const [arrayTodo, setArrayTodo] = useState(
