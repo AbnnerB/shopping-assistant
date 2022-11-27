@@ -7,7 +7,7 @@ import { AiFillDelete } from "react-icons/ai";
 export default function Counter() {
   const [products, setProducts] = useState("");
   const [values, setValues] = useState("");
-  const [quantity, setQuantity] = useState("1");
+  const [quantity, setQuantity] = useState("");
   const [id, setId] = useState(0);
 
   const [totalValue, setTotalValue] = useState(0);
@@ -15,15 +15,6 @@ export default function Counter() {
   const [arrayLine, setArrayLine] = useState(
     () => JSON.parse(localStorage.getItem("arrayLineLocal")) || []
   );
-
-  useEffect(() => {
-    if (values <= 0) {
-      setValues(1);
-    }
-    if (quantity < 1) {
-      setQuantity(1);
-    }
-  }, [values, quantity]);
 
   useEffect(() => {
     let storedArray = JSON.parse(localStorage.getItem("arrayLineLocal"));
@@ -37,7 +28,7 @@ export default function Counter() {
   }, []);
 
   function addLine() {
-    if (products.length < 1 || values.length < 1 || quantity.length < 0) {
+    if (products.length < 1 || values <= 0 || quantity <= 0) {
       alert("Digite um Valor");
       return;
     }
@@ -128,7 +119,7 @@ export default function Counter() {
               {arrayLine.map((item, index) => (
                 <tr key={index}>
                   <td>{item.product} </td>
-                  <td>{`R$ ${item.values},00`}</td>
+                  <td>{`R$ ${item.values}`}</td>
                   <td>{item.quantity}</td>
                   <td className="tdButton">
                     <button onClick={() => deleteLine(item.id)}>
