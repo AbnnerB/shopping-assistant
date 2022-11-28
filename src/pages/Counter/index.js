@@ -27,9 +27,25 @@ export default function Counter() {
     setId(lastId + 1 || 0);
   }, []);
 
+  useEffect(() => {
+    if (values.length >= 9) {
+      setValues("999999999");
+      return;
+    }
+    if (quantity.length >= 5) {
+      setQuantity("10000");
+      return;
+    }
+  }, [values, quantity]);
+
   function addLine() {
-    if (products.length < 1 || values <= 0 || quantity <= 0) {
-      alert("Digite um Valor");
+    if (products.length < 1 || values.length < 1 || quantity.length < 1) {
+      alert("Preencha as caixas de textos");
+      return;
+    }
+
+    if (values <= 0 || quantity <= 0) {
+      alert("Digite um valor diferente de 0");
       return;
     }
 
@@ -58,7 +74,6 @@ export default function Counter() {
     }
 
     const resultado = arrayLine.reduce(somar, 0);
-
     setTotalValue(resultado);
   }, [arrayLine]);
 
@@ -83,6 +98,7 @@ export default function Counter() {
             value={products}
             onChange={(e) => setProducts(e.target.value)}
             autoFocus
+            maxLength="30"
           />
         </div>
         <div className="containerLabelInputs">
@@ -92,6 +108,8 @@ export default function Counter() {
             name="inputValue"
             placeholder="Digite um valor"
             value={values}
+            min="1"
+            max="11111111111111"
             onChange={(e) => setValues(e.target.value)}
           />
         </div>
@@ -103,6 +121,7 @@ export default function Counter() {
             placeholder="Digite um valor"
             value={quantity}
             min="1"
+            max="11111111111111"
             onChange={(e) => setQuantity(e.target.value)}
           />
         </div>
