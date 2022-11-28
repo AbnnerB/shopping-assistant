@@ -30,11 +30,9 @@ export default function Counter() {
   useEffect(() => {
     if (values.length >= 9) {
       setValues("999999999");
-      return;
     }
     if (quantity.length >= 5) {
-      setQuantity("10000");
-      return;
+      setQuantity("99999");
     }
   }, [values, quantity]);
 
@@ -109,7 +107,7 @@ export default function Counter() {
             placeholder="Digite um valor"
             value={values}
             min="1"
-            max="11111111111111"
+            max="11111111"
             onChange={(e) => setValues(e.target.value)}
           />
         </div>
@@ -121,7 +119,7 @@ export default function Counter() {
             placeholder="Digite um valor"
             value={quantity}
             min="1"
-            max="11111111111111"
+            max="1111111"
             onChange={(e) => setQuantity(e.target.value)}
           />
         </div>
