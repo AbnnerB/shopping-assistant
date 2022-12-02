@@ -154,11 +154,6 @@ export default function Counter() {
               <tr>
                 <td>Total</td>
                 <td colSpan="2">
-                  {/* {total.toLocaleString("pt-br", {
-                    style: "currency",
-                    currency: "BRL",
-                })} */}
-
                   {totalValue.toLocaleString("pt-br", {
                     style: "currency",
                     currency: "BRL",
