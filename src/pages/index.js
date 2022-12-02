@@ -17,7 +17,7 @@ export default function Counter() {
   );
 
   useEffect(() => {
-    let storedArray = JSON.parse(localStorage.getItem("arrayLineLocal"));
+    let storedArray = JSON.parse(localStorage.getItem("arrayLineLocal")) || [];
     let getId = storedArray.map((task) => {
       return task.id;
     });
