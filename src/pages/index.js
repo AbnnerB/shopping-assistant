@@ -105,7 +105,7 @@ export default function Counter() {
             <input
               type="number"
               name="inputValue"
-              placeholder="Digite um valor"
+              placeholder="Valor"
               value={values}
               min="1"
               onChange={(e) => setValues(e.target.value)}
@@ -116,7 +116,7 @@ export default function Counter() {
             <input
               type="number"
               name="inputQuant"
-              placeholder="Digite uma quantidade"
+              placeholder="Quantidade"
               value={quantity}
               min="1"
               onChange={(e) => setQuantity(e.target.value)}
@@ -133,7 +133,7 @@ export default function Counter() {
               <tr>
                 <th>Produto</th>
                 <th>Valor</th>
-                <th>Quantidade</th>
+                <th>Quant</th>
               </tr>
             </thead>
             <tbody>
