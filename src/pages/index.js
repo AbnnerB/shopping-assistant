@@ -102,7 +102,7 @@ export default function Counter() {
             value={products}
             onChange={(e) => setProducts(e.target.value)}
             autoFocus
-            maxLength="15"
+            maxLength="25"
           />
         </div>
         <div className="inputQuantValue">
