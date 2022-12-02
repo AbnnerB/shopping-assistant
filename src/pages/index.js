@@ -84,7 +84,7 @@ export default function Counter() {
 
   return (
     <div>
-      <h3>Vamos ver se agora vai</h3>
+      <h1>Assistente de compras</h1>
 
       <section className="topoInputs">
         <div className="containerLabelInputs">
