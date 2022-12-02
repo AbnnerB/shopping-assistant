@@ -83,48 +83,48 @@ export default function Counter() {
   }
 
   return (
-    <div>
+    <div className="containerContent">
       <h1>Assistente de compras</h1>
 
       <section className="topoInputs">
         <div className="containerLabelInputs">
-          <label>Produtos:</label>
+          <label>Produto</label>
           <input
             type="text"
             name="inputName"
-            placeholder="Digite..."
+            placeholder="Digite um nome"
             value={products}
             onChange={(e) => setProducts(e.target.value)}
             autoFocus
             maxLength="30"
           />
         </div>
-        <div className="containerLabelInputs">
-          <label>Valor:</label>
-          <input
-            type="number"
-            name="inputValue"
-            placeholder="Digite um valor"
-            value={values}
-            min="1"
-            max="11111111"
-            onChange={(e) => setValues(e.target.value)}
-          />
-        </div>
-        <div className="containerLabelInputs">
-          <label>Quantidade:</label>
-          <input
-            type="number"
-            name="inputQuant"
-            placeholder="Digite um valor"
-            value={quantity}
-            min="1"
-            max="1111111"
-            onChange={(e) => setQuantity(e.target.value)}
-          />
+        <div className="inputQuantValue">
+          <div className="containerLabelInputs">
+            <label>Valor</label>
+            <input
+              type="number"
+              name="inputValue"
+              placeholder="Digite um valor"
+              value={values}
+              min="1"
+              onChange={(e) => setValues(e.target.value)}
+            />
+          </div>
+          <div className="containerLabelInputs">
+            <label>Quantidade</label>
+            <input
+              type="number"
+              name="inputQuant"
+              placeholder="Digite uma quantidade"
+              value={quantity}
+              min="1"
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+          </div>
         </div>
 
-        <button onClick={addLine}>Add</button>
+        <button onClick={addLine}>Adicionar</button>
       </section>
       <section className="sectionTable">
         {arrayLine.length >= 1 && (

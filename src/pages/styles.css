@@ -1,21 +1,60 @@
+.containerContent {
+  max-width: 800px;
+  width: 100%;
+}
+
+h1 {
+  margin-top: 1rem;
+  text-align: center;
+  color: #ffffff;
+}
+
 .topoInputs {
   display: flex;
-  gap: 2rem;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  /* gap: 1rem; */
+  /* align-items: baseline; */
+}
+.inputQuantValue {
+  display: flex;
+  gap: 1rem;
+}
+
+.inputQuantValue .containerLabelInputs {
+  width: 50%;
+  margin: 0.5em auto;
+}
+
+.topoInputs button {
+  margin-top: 1em;
+  width: 70%;
+  padding: 0.5em;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: rgb(127, 172, 255);
 }
 
 .containerLabelInputs {
   margin-top: 1em;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid brown; */
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
 }
 .containerLabelInputs input {
+  outline: 0;
   padding: 0.4rem 0;
   font-size: 0.9rem;
+  text-align: center;
+  border-radius: 20px;
+  border: none;
 }
-
-/*  informações da tabela daqui a pouco */
 
 .sectionTable {
   margin-top: 3rem;
@@ -24,37 +63,33 @@
 }
 
 table {
+  width: 100%;
   border: none;
-  /* border-collapse: collapse; */
-  margin: auto;
-  background-color: white;
-  background-color: transparent;
+  border-collapse: collapse;
+  text-align: center;
 }
 
 th,
 td {
   width: 100%;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  padding: 10px;
+  /* width: 120px; */
+  width: 30%;
+}
+
+th {
+  background-color: rgb(35, 167, 255);
+  font-weight: bold;
 }
 
 .inputTabela {
   width: 100%;
   font-size: 1.1rem;
   border: none;
-  /* outline: 1px solid rgb(156, 156, 156); */
   outline: none;
   text-align: center;
-}
-
-th,
-td {
-  padding: 10px;
-  /* text-align: center; */
-  width: 120px;
-}
-
-th {
-  font-weight: bold;
 }
 
 .tdButton {
@@ -62,20 +97,14 @@ th {
   border: none;
   text-align: justify;
   width: 10%;
+  padding: 0;
 }
 
 .tdButton button {
   background-color: transparent;
   border: none;
-  color: rgb(218, 17, 17);
-  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  font-size: 1.8rem;
   cursor: pointer;
   display: flex;
 }
-
-/* tbody tr:nth-child(even) {
-    background-color: #dcebe6;
-  }
-  tbody tr:nth-child(odd) {
-    background-color: #a6c7bc;
-  } */

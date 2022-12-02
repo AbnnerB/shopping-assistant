@@ -2,12 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 body {
+  background: rgb(131, 58, 180);
   background: linear-gradient(
-    0deg,
-    rgba(214, 199, 178, 1) 0%,
-    rgba(232, 169, 84, 1) 76%
+    180deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(66, 123, 222, 1) 56%
   );
   background-repeat: no-repeat;
   min-height: 100vh;
