@@ -28,11 +28,11 @@ export default function Counter() {
   }, []);
 
   useEffect(() => {
-    if (values.length >= 9) {
-      setValues("999999999");
+    if (values.length >= 5) {
+      setValues("99999");
     }
-    if (quantity.length >= 5) {
-      setQuantity("99999");
+    if (quantity.length >= 3) {
+      setQuantity("999");
     }
   }, [values, quantity]);
 
@@ -60,6 +60,12 @@ export default function Counter() {
     setProducts("");
     setValues("");
     setQuantity("");
+  }
+
+  function addLineWithEnter(event) {
+    if (event.key === "Enter") {
+      addLine();
+    }
   }
 
   useEffect(() => {
@@ -96,7 +102,7 @@ export default function Counter() {
             value={products}
             onChange={(e) => setProducts(e.target.value)}
             autoFocus
-            maxLength="30"
+            maxLength="15"
           />
         </div>
         <div className="inputQuantValue">
@@ -119,6 +125,7 @@ export default function Counter() {
               placeholder="Quantidade"
               value={quantity}
               min="1"
+              onKeyPress={addLineWithEnter}
               onChange={(e) => setQuantity(e.target.value)}
             />
           </div>
