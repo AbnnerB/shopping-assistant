@@ -28,11 +28,11 @@ export default function Counter() {
   }, []);
 
   useEffect(() => {
-    if (values.length >= 5) {
+    if (values.length > 6) {
       setValues("99999");
     }
-    if (quantity.length >= 3) {
-      setQuantity("999");
+    if (quantity.length > 6) {
+      setQuantity("999999");
     }
   }, [values, quantity]);
 
