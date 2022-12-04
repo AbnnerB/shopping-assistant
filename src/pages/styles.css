@@ -1,6 +1,8 @@
 .containerContent {
   max-width: 800px;
   width: 100%;
+
+  margin-bottom: 2rem;
 }
 
 h1 {
