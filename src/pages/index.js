@@ -144,18 +144,29 @@ export default function Counter() {
               </tr>
             </thead>
             <tbody>
-              {arrayLine.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.product} </td>
-                  <td>{`R$ ${item.values}`}</td>
-                  <td>{item.quantity}</td>
-                  <td className="tdButton">
-                    <button onClick={() => deleteLine(item.id)}>
-                      <AiFillDelete />
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {arrayLine.map((item, index) => {
+                const getValue = parseFloat(item.values);
+
+                const valueFormat = getValue.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                });
+
+                console.log(valueFormat);
+
+                return (
+                  <tr key={index}>
+                    <td>{item.product} </td>
+                    <td>{valueFormat}</td>
+                    <td>{item.quantity}</td>
+                    <td className="tdButton">
+                      <button onClick={() => deleteLine(item.id)}>
+                        <AiFillDelete />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
             <tfoot>
               <tr>
